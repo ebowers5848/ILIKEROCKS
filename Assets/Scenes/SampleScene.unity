@@ -283,8 +283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37b42020d8b43749b549e9e62a87d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bone: {fileID: 0}
-  effector: {fileID: 0}
   target: {fileID: 0}
   anchors:
   - {fileID: 0}
@@ -474,6 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275a7dcc47d064d8db25ba7a001ce6ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effector: {fileID: 1624646188}
 --- !u!212 &275186176
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1270,6 +1269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275a7dcc47d064d8db25ba7a001ce6ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effector: {fileID: 0}
 --- !u!212 &412194432
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1445,7 +1445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ConstrainRotation: 1
-  m_SolveFromDefaultPose: 1
+  m_SolveFromDefaultPose: 0
   m_Weight: 1
   m_Chain:
     m_EffectorTransform: {fileID: 1624646189}
@@ -1466,7 +1466,7 @@ MonoBehaviour:
     - {x: 0, y: 0, z: 0, w: 0}
     - {x: 0, y: 0, z: 0, w: 0}
     - {x: 0, y: 0, z: 0, w: 0}
-  m_Iterations: 10
+  m_Iterations: 30
   m_Tolerance: 0.01
   m_Velocity: 0.5
 --- !u!4 &446061193
@@ -1639,6 +1639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275a7dcc47d064d8db25ba7a001ce6ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effector: {fileID: 0}
 --- !u!212 &517660724
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2135,6 +2136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275a7dcc47d064d8db25ba7a001ce6ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effector: {fileID: 0}
 --- !u!4 &768362776 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -2542589738058543398, guid: 3015b5917340f53479c42c813fce42a0, type: 3}
@@ -2219,6 +2221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275a7dcc47d064d8db25ba7a001ce6ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effector: {fileID: 0}
 --- !u!212 &987351963
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2760,8 +2763,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37b42020d8b43749b549e9e62a87d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bone: {fileID: 1055164634}
-  effector: {fileID: 1624646188}
   target: {fileID: 275186173}
   anchors:
   - {fileID: 0}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class DragAndDrop : MonoBehaviour {
     bool dragging;
     Collider2D collider;
+    public GameObject effector;
 
     void Start() {
         collider = GetComponent<Collider2D>();
@@ -23,7 +24,9 @@ public class DragAndDrop : MonoBehaviour {
         if (dragging) {
             this.transform.position = mousePos;
         }
+
         if (Input.GetMouseButtonUp(0)) {
+            this.transform.position = effector.transform.position;
             dragging = false;
         }
     }
