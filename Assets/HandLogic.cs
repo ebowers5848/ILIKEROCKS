@@ -31,6 +31,14 @@ public class HandLogic : MonoBehaviour
             target.transform.position = anchor.transform.position;
         }
 
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (Input.GetMouseButtonDown(0)) {
+            if (target.GetComponent<Collider2D>() == Physics2D.OverlapPoint(mousePos)){
+                Destroy(anchor);
+            }
+        }
+
         //rigibod.constraints = RigidbodyConstraints2D.FreezePositionX;
         //handSR.sprite = closed;
         //grab = false;
@@ -45,11 +53,4 @@ public class HandLogic : MonoBehaviour
         }
     }
 
-    void OnCollisionExit2D(Collision2D col) {   
-        Debug.Log(col.gameObject.name + " no longer colliding with " + gameObject.name + " at " + Time.time);
-
-        if(col.gameObject.CompareTag("hold") && anchor) {
-            Destroy(anchor);
-        }
-    }
 }
