@@ -283,9 +283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37b42020d8b43749b549e9e62a87d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigibod: {fileID: 0}
   bone: {fileID: 0}
   effector: {fileID: 0}
+  target: {fileID: 0}
   anchors:
   - {fileID: 0}
   - {fileID: 0}
@@ -2760,9 +2760,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37b42020d8b43749b549e9e62a87d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigibod: {fileID: 1986640442}
   bone: {fileID: 1055164634}
   effector: {fileID: 1624646188}
+  target: {fileID: 275186173}
   anchors:
   - {fileID: 0}
   - {fileID: 0}
