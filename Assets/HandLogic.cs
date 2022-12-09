@@ -4,12 +4,27 @@ using UnityEngine;
 
 public class HandLogic : MonoBehaviour
 {
+<<<<<<< Updated upstream
     Rigidbody2D rigibod;
     bool grab;
     public SpriteRenderer handSR;
     public UnityEngine.U2D.Animation.SpriteResolver resolver;
     public Sprite open;
     public Sprite closed;
+=======
+    public bool isgrabbing;
+    public GameObject target;
+    public GameObject bone;
+    public GameObject[] anchors = new GameObject[4];
+
+    private GameObject anchor;
+
+    //public Rigidbody2D climberGuy; 
+    //public SpriteRenderer handSR;
+    //public UnityEngine.U2D.Animation.SpriteResolver resolver;
+    //public Sprite open;
+    //public Sprite closed;
+>>>>>>> Stashed changes
     
 
     
@@ -29,6 +44,7 @@ public class HandLogic : MonoBehaviour
 
 
 
+<<<<<<< Updated upstream
     // Update is called once per frame
     void Update()
     {
@@ -38,11 +54,19 @@ public class HandLogic : MonoBehaviour
             print("graby");
             rigibod.constraints = RigidbodyConstraints2D.FreezePosition;
             handSR.sprite = closed;
+=======
+        if (Input.GetMouseButtonDown(0)) {
+            if (target.GetComponent<Collider2D>() == Physics2D.OverlapPoint(mousePos)){
+                Destroy(anchor);
+                isgrabbing = false;
+            }
+>>>>>>> Stashed changes
         }
         
 
     }
 
+<<<<<<< Updated upstream
     void OnTriggerEnter2D(Collider2D col)
         {   
             Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
@@ -52,5 +76,14 @@ public class HandLogic : MonoBehaviour
                 resolver.SetCategoryAndLabel("Hand", "Closed");
                 resolver.ResolveSpriteToSpriteRenderer();
             }
+=======
+    void OnCollisionEnter2D(Collision2D col) {   
+        Debug.Log(col.gameObject.name + " is colliding with " + gameObject.name + " at " + Time.time);
+
+        if(col.gameObject.CompareTag("hold") && !anchor) {
+			anchor = new GameObject();
+            anchor.transform.position = col.gameObject.transform.position;
+            isgrabbing = true;
+>>>>>>> Stashed changes
         }
 }
