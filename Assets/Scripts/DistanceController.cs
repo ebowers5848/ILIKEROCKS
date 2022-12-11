@@ -11,10 +11,8 @@ public class DistanceController : MonoBehaviour
 
     void Update()
     {
-        // Calculate the distance between the two GameObjects
         float distance = Vector3.Distance(GameObject1.transform.position, GameObject2.transform.position);
 
-        // If the distance is less than the threshold distance, move GameObject1 away from GameObject2
         if (distance > thresholdDistance)
         {
             Vector3 direction = GameObject1.transform.position - GameObject2.transform.position;
