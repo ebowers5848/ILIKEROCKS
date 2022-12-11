@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DragAndDrop : MonoBehaviour {
     bool dragging;
-    Collider2D collider;
+    Collider2D circleCollider;
     public GameObject effector;
 
 	// for use in RotateBody()
@@ -12,7 +12,7 @@ public class DragAndDrop : MonoBehaviour {
     public GameObject head;
 
     void Start() {
-        collider = GetComponent<Collider2D>();
+        circleCollider = GetComponent<Collider2D>();
         dragging = false;
     }
 
@@ -20,7 +20,7 @@ public class DragAndDrop : MonoBehaviour {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         if (Input.GetMouseButtonDown(0)) {
-            if (collider == Physics2D.OverlapPoint(mousePos)) {
+            if (circleCollider == Physics2D.OverlapPoint(mousePos)) {
                 dragging = true;
             }
         }
@@ -28,7 +28,11 @@ public class DragAndDrop : MonoBehaviour {
         if (dragging) {
             this.transform.position = mousePos;
 
-            if (gameObject.tag == "body_target") {
+            if (gameObject.tag == "body_move_target") {
+                effector.transform.position = Vector2.Lerp(effector.transform.position, this.transform.position, Time.deltaTime);
+            }
+
+            if (gameObject.tag == "body_rotate_target") {
                 RotateBody();
             }
         }

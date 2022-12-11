@@ -6,7 +6,8 @@ TagManager:
   tags:
   - hold
   - hand
-  - body_target
+  - body_rotate_target
+  - body_move_target
   layers:
   - Default
   - TransparentFX
