@@ -6,6 +6,8 @@ public class DragAndDrop : MonoBehaviour {
     bool dragging;
     Collider2D circleCollider;
     public GameObject effector;
+    public isExtended[] scriptlist;
+    
 
 	// for use in RotateBody()
     public GameObject body;
@@ -29,7 +31,9 @@ public class DragAndDrop : MonoBehaviour {
             this.transform.position = mousePos;
 
             if (gameObject.tag == "body_move_target") {
-                effector.transform.position = Vector2.Lerp(effector.transform.position, this.transform.position, Time.deltaTime);
+                if(!scriptlist[0].isExt && !scriptlist[1].isExt && !scriptlist[2].isExt && !scriptlist[3].isExt){
+                    effector.transform.position = Vector2.Lerp(effector.transform.position, this.transform.position, Time.deltaTime);
+                }
             }
 
             if (gameObject.tag == "body_rotate_target") {
@@ -41,6 +45,7 @@ public class DragAndDrop : MonoBehaviour {
             this.transform.position = effector.transform.position;
             dragging = false;
         }
+        
     }
 
     void RotateBody() {

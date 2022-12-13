@@ -7,10 +7,9 @@ public class GrabLogic : MonoBehaviour
     // Audio for Rock Grab sound effect
     private GameObject SoundEffectsGameObject;
     public AudioClip grabSoundEffect;
-
     public GameObject target;
     public GameObject[] anchors = new GameObject[4];
-
+    public bool isGrabbing;
     private GameObject anchor;
 
     //public Rigidbody2D climberGuy; 
@@ -24,9 +23,8 @@ public class GrabLogic : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        //rigibod = GetComponent<Rigidbody2D>(); 
-        //climberGuy = this.transform.parent.GetComponent<Rigidbody2D>();
-
+        
+       
         SoundEffectsGameObject = new GameObject();
         SoundEffectsGameObject.AddComponent(typeof(AudioSource));
 
@@ -35,6 +33,7 @@ public class GrabLogic : MonoBehaviour
     // Update is called once per frame
     void Update() {
         if (anchor) {
+            isGrabbing = true;
             target.transform.position = anchor.transform.position;
         }
 
@@ -43,16 +42,15 @@ public class GrabLogic : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) {
             if (target.GetComponent<Collider2D>() == Physics2D.OverlapPoint(mousePos)){
                 Destroy(anchor);
+                isGrabbing = false;
             }
         }
 
-        //rigibod.constraints = RigidbodyConstraints2D.FreezePositionX;
-        //handSR.sprite = closed;
-        //grab = false;
+
     }
 
-    void OnCollisionEnter2D(Collision2D col) {   
-        Debug.Log(col.gameObject.name + " is colliding with " + gameObject.name + " at " + Time.time);
+    void OnTriggerEnter2D(Collider2D col) {   
+        //Debug.Log(col.gameObject.name + " is colliding with " + gameObject.name + " at " + Time.time);
 
         // Play grab sound effect
         SoundEffectsGameObject.GetComponent<AudioSource>().PlayOneShot(grabSoundEffect);
