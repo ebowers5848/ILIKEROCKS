@@ -25,7 +25,7 @@ public class gravityControl : MonoBehaviour
                 grabCount += 1;
             }
         }
-        Debug.Log("grabCount = " + grabCount);
+        // Debug.Log("grabCount = " + grabCount);
         if (grabCount >= 3){
             rb.gravityScale = 0f;
         }
