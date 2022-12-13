@@ -9,6 +9,8 @@ TagManager:
   - body_rotate_target
   - body_move_target
   - bone
+  - floor
+  - ceiling
   layers:
   - Default
   - TransparentFX

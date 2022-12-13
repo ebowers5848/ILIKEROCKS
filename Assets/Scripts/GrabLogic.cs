@@ -7,6 +7,8 @@ public class GrabLogic : MonoBehaviour
     // Audio for Rock Grab sound effect
     private GameObject SoundEffectsGameObject;
     public AudioClip grabSoundEffect;
+    public AudioClip releaseSoundEffect;
+    public AudioClip winSoundEffect;
     public GameObject target;
     public GameObject[] anchors = new GameObject[4];
     public bool isGrabbing;
@@ -43,6 +45,9 @@ public class GrabLogic : MonoBehaviour
             if (target.GetComponent<Collider2D>() == Physics2D.OverlapPoint(mousePos)){
                 Destroy(anchor);
                 isGrabbing = false;
+
+                // Play release sound effect
+                SoundEffectsGameObject.GetComponent<AudioSource>().PlayOneShot(releaseSoundEffect);
             }
         }
 
@@ -59,6 +64,11 @@ public class GrabLogic : MonoBehaviour
         if(col.gameObject.CompareTag("hold") && !anchor) {
 			anchor = new GameObject();
             anchor.transform.position = col.gameObject.transform.position;
+        }
+
+        if(col.gameObject.tag == "ceiling") {
+            // Play winning sound effect
+            SoundEffectsGameObject.GetComponent<AudioSource>().PlayOneShot(winSoundEffect);
         }
     }
 
